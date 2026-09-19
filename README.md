@@ -76,3 +76,19 @@ Ecommerce
 ├── pom.xml
 ├── testng.xml
 └── README.md
+## Test Execution Result
+
+The complete automation suite currently executes successfully.
+
+```text
+Tests run: 10
+Failures: 0
+Errors: 0
+Skipped: 0
+
+BUILD SUCCESS
+```
+
+### Test Execution Screenshot
+
+![Test Execution Result](docs/test-execution.png)
