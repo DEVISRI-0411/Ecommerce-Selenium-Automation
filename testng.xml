@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM
+    "https://testng.org/testng-1.0.dtd">
+
+<suite name="ShopEasy Automation Suite">
+
+    <test name="E-Commerce Functional Tests">
+
+        <classes>
+
+            <class name="com.selenium.project.tests.HomePageTest"/>
+
+            <class name="com.selenium.project.tests.LoginTest"/>
+
+            <class name="com.selenium.project.tests.ProductTest"/>
+
+            <class name="com.selenium.project.tests.CartTest"/>
+
+            <class name="com.selenium.project.tests.CheckoutTest"/>
+
+            <class name="com.selenium.project.tests.LogoutTest"/>
+
+        </classes>
+
+    </test>
+
+</suite>
