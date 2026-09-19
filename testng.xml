@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!DOCTYPE suite SYSTEM
-    "https://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
 <suite name="ShopEasy Automation Suite">
 
-    <test name="E-Commerce Functional Tests">
+    <test name="E-Commerce Functional and Negative Tests">
 
         <classes>
 
             <class name="com.selenium.project.tests.HomePageTest"/>
 
             <class name="com.selenium.project.tests.LoginTest"/>
+
+            <class name="com.selenium.project.tests.NegativeLoginTest"/>
+
+            <class name="com.selenium.project.tests.NegativeRegistrationTest"/>
+
+            <class name="com.selenium.project.tests.NegativeCheckoutTest"/>
+
+            <class name="com.selenium.project.tests.EmptyCartCheckoutTest"/>
 
             <class name="com.selenium.project.tests.ProductTest"/>
 

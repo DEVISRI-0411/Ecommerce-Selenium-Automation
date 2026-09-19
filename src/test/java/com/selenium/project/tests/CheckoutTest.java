@@ -13,45 +13,37 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void checkoutTest() {
 
-        ProductsPage productsPage =
-                new ProductsPage(driver);
+        ProductsPage productsPage = new ProductsPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        ConfirmationPage confirmationPage = new ConfirmationPage(driver);
 
-        CheckoutPage checkoutPage =
-                new CheckoutPage(driver);
-
-        ConfirmationPage confirmationPage =
-                new ConfirmationPage(driver);
-
-        // Open products page
+        // 1. Open Products page
         driver.get(
             "file:///C:/Users/DEVI%20SRI/eclipse-workspace/EcommerceWebsite/products.html"
         );
 
-        // Add product to cart
+        // 2. Add first product to cart
         productsPage.addFirstProductToCart();
 
-        // Accept "product added" alert
+        // Accept product added alert
         driver.switchTo().alert().accept();
 
-        // Open checkout page
+        // 3. Open Checkout page
         driver.get(
             "file:///C:/Users/DEVI%20SRI/eclipse-workspace/EcommerceWebsite/checkout.html"
         );
 
-        // Verify checkout total
-        String checkoutTotal =
-                checkoutPage.getCheckoutTotal();
+        // 4. Verify checkout total is displayed
+        String checkoutTotal = checkoutPage.getCheckoutTotal();
 
         Assert.assertNotNull(
             checkoutTotal,
             "Checkout total was not displayed"
         );
 
-        System.out.println(
-            "Checkout Total: ₹" + checkoutTotal
-        );
+        System.out.println("Checkout Total: ₹" + checkoutTotal);
 
-        // Complete checkout
+        // 5. Enter customer details and place order
         checkoutPage.completeCheckout(
             "Test User",
             "testuser@gmail.com",
@@ -61,77 +53,72 @@ public class CheckoutTest extends BaseTest {
             "600001"
         );
 
-        // Verify confirmation page
+        // 6. Verify confirmation page
         Assert.assertTrue(
-            driver.getCurrentUrl().contains(
-                "confirmation.html"
-            ),
+            driver.getCurrentUrl().contains("confirmation.html"),
             "Order confirmation page was not displayed"
         );
 
-        // Verify confirmation title
+        // 7. Verify confirmation title
         Assert.assertEquals(
             confirmationPage.getConfirmationTitle(),
             "Order Confirmed!",
             "Confirmation title is incorrect"
         );
 
-        // Verify Order ID
-        String orderId =
-                confirmationPage.getOrderId();
+        // 8. Verify Order ID
+        String orderId = confirmationPage.getOrderId();
 
         Assert.assertTrue(
             orderId.startsWith("SE"),
             "Invalid Order ID"
         );
 
-        System.out.println(
-            "Order ID: " + orderId
-        );
+        System.out.println("Order ID: " + orderId);
 
-        // Verify customer details
+        // 9. Verify customer name
         Assert.assertEquals(
             confirmationPage.getCustomerName(),
             "Test User",
             "Customer name is incorrect"
         );
 
+        // 10. Verify customer email
         Assert.assertEquals(
             confirmationPage.getCustomerEmail(),
             "testuser@gmail.com",
             "Customer email is incorrect"
         );
 
+        // 11. Verify customer city
         Assert.assertEquals(
             confirmationPage.getCustomerCity(),
             "Chennai",
             "Customer city is incorrect"
         );
 
+        // 12. Verify customer pincode
         Assert.assertEquals(
             confirmationPage.getCustomerPincode(),
             "600001",
             "Customer pincode is incorrect"
         );
 
-        // Verify payment method
+        // 13. Verify payment method
         Assert.assertEquals(
             confirmationPage.getPaymentMethod(),
             "Cash on Delivery",
             "Payment method is incorrect"
         );
 
-        // Verify order total
-        String orderTotal =
-                confirmationPage.getOrderTotal();
+        // 14. Verify order total
+        String orderTotal = confirmationPage.getOrderTotal();
 
         Assert.assertNotNull(
             orderTotal,
             "Order total is not displayed"
         );
 
-        System.out.println(
-            "Order Total: ₹" + orderTotal
-        );
+        System.out.println("Order Total: ₹" + orderTotal);
     }
 }

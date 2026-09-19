@@ -1,147 +1,78 @@
-ShopEasy - Selenium E-Commerce Automation
+# ShopEasy E-Commerce Selenium Automation Framework
 
+## Project Overview
 
+ShopEasy is a sample e-commerce web application created to demonstrate end-to-end web application testing using Selenium WebDriver with Java and TestNG.
 
- Project Overview
+The automation framework validates key e-commerce workflows including user registration, login, product search, cart operations, checkout, order confirmation, and logout.
 
+The project follows the Page Object Model (POM) design pattern with reusable utilities for driver management, explicit waits, and failure screenshots.
 
-
-ShopEasy is a sample e-commerce web application developed to practice
-
-end-to-end web application testing using Selenium WebDriver, Java,
-
-TestNG, and Maven.
-
-
-
-The project follows the Page Object Model (POM) design pattern and
-
-includes reusable utilities for WebDriver management, explicit waits,
-
-and failure screenshot capture.
-
-
-
- Features Automated
-
-
-
-- Home Page validation
-
-- User Registration
-
-- User Login
-
-- Product Search
-
-- Add Product to Cart
-
-- Increase Product Quantity
-
-- Decrease Product Quantity
-
-- Remove Product from Cart
-
-- Checkout
-
-- Order Confirmation
-
-- User Logout
-
-
-
-Technologies Used
-
-
+## Technologies Used
 
 - Java
-
-- Selenium WebDriver
-
-- TestNG
-
+- Selenium WebDriver 4.35.0
+- TestNG 7.11.0
 - Maven
-
+- Chrome
 - Git
-
 - GitHub
+- Page Object Model (POM)
 
-- Eclipse IDE
+## Application Features Tested
 
-- HTML
+The ShopEasy application contains the following features:
 
-- CSS
+1. Home page
+2. User registration
+3. User login
+4. Product listing
+5. Product search
+6. Add product to cart
+7. Increase product quantity
+8. Decrease product quantity
+9. Remove product from cart
+10. Checkout
+11. Payment method selection
+12. Order confirmation
+13. User logout
 
-- JavaScript
+## Automation Framework Structure
 
-
-
-Framework Structure
-
-
-
-
-
+```text
 Ecommerce
-
-│
-
+|
 ├── src
-
 │   └── test
-
 │       └── java
-
 │           └── com.selenium.project
-
-│               │
-
-│               ├── pages
-
-│               │   ├── LoginPage.java
-
-│               │   ├── RegisterPage.java
-
-│               │   ├── ProductsPage.java
-
-│               │   ├── CartPage.java
-
-│               │   ├── CheckoutPage.java
-
-│               │   └── ConfirmationPage.java
-
-│               │
-
-│               ├── tests
-
-│               │   ├── HomePageTest.java
-
-│               │   ├── LoginTest.java
-
-│               │   ├── ProductTest.java
-
-│               │   ├── CartTest.java
-
-│               │   ├── CheckoutTest.java
-
-│               │   └── LogoutTest.java
-
-│               │
-
-│               └── utilities
-
-│                   ├── BaseTest.java
-
-│                   ├── DriverFactory.java
-
-│                   ├── WaitUtils.java
-
-│                   └── ScreenshotUtils.java
-
 │
-
+│               ├── pages
+│               │   ├── LoginPage.java
+│               │   ├── RegisterPage.java
+│               │   ├── ProductsPage.java
+│               │   ├── CartPage.java
+│               │   ├── CheckoutPage.java
+│               │   └── ConfirmationPage.java
+│               │
+│               ├── tests
+│               │   ├── HomePageTest.java
+│               │   ├── LoginTest.java
+│               │   ├── NegativeLoginTest.java
+│               │   ├── NegativeRegistrationTest.java
+│               │   ├── NegativeCheckoutTest.java
+│               │   ├── EmptyCartCheckoutTest.java
+│               │   ├── ProductTest.java
+│               │   ├── CartTest.java
+│               │   ├── CheckoutTest.java
+│               │   └── LogoutTest.java
+│               │
+│               └── utilities
+│                   ├── DriverFactory.java
+│                   ├── BaseTest.java
+│                   ├── WaitUtils.java
+│                   └── ScreenshotUtils.java
+│
 ├── pom.xml
-
 ├── testng.xml
-
-└── .gitignore
+└── README.md

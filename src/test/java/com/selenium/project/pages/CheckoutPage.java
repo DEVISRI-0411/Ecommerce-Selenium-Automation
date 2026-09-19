@@ -10,40 +10,62 @@ public class CheckoutPage {
     WebDriver driver;
     WaitUtils waitUtils;
 
-    private By nameField = By.id("customerName");
 
-    private By emailField = By.id("customerEmail");
+    // Customer fields
 
-    private By phoneField = By.id("phone");
+    private By nameField =
+            By.id("customerName");
 
-    private By addressField = By.id("address");
+    private By emailField =
+            By.id("customerEmail");
 
-    private By cityField = By.id("city");
+    private By phoneField =
+            By.id("phone");
 
-    private By pincodeField = By.id("pincode");
+    private By addressField =
+            By.id("address");
 
-    private By cashOnDelivery = By.cssSelector(
-        "input[name='payment'][value='Cash on Delivery']"
-    );
+    private By cityField =
+            By.id("city");
 
-    private By upiPayment = By.cssSelector(
-        "input[name='payment'][value='UPI']"
-    );
+    private By pincodeField =
+            By.id("pincode");
 
-    private By cardPayment = By.cssSelector(
-        "input[name='payment'][value='Credit/Debit Card']"
-    );
 
-    private By checkoutTotal = By.id("checkoutTotal");
+    // Payment options
 
-    private By placeOrderButton = By.id("placeOrderButton");
+    private By cashOnDelivery =
+            By.cssSelector(
+                "input[name='payment'][value='Cash on Delivery']"
+            );
+
+    private By upiPayment =
+            By.cssSelector(
+                "input[name='payment'][value='UPI']"
+            );
+
+    private By cardPayment =
+            By.cssSelector(
+                "input[name='payment'][value='Credit/Debit Card']"
+            );
+
+
+    // Checkout elements
+
+    private By checkoutTotal =
+            By.id("checkoutTotal");
+
+    private By placeOrderButton =
+            By.id("placeOrderButton");
 
 
     public CheckoutPage(WebDriver driver) {
 
         this.driver = driver;
 
-        this.waitUtils = new WaitUtils(driver);
+        this.waitUtils =
+                new WaitUtils(driver);
+
     }
 
 
@@ -52,6 +74,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(nameField)
             .sendKeys(name);
+
     }
 
 
@@ -60,6 +83,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(emailField)
             .sendKeys(email);
+
     }
 
 
@@ -68,6 +92,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(phoneField)
             .sendKeys(phone);
+
     }
 
 
@@ -76,6 +101,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(addressField)
             .sendKeys(address);
+
     }
 
 
@@ -84,6 +110,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(cityField)
             .sendKeys(city);
+
     }
 
 
@@ -92,6 +119,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementVisible(pincodeField)
             .sendKeys(pincode);
+
     }
 
 
@@ -100,6 +128,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementClickable(cashOnDelivery)
             .click();
+
     }
 
 
@@ -108,6 +137,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementClickable(upiPayment)
             .click();
+
     }
 
 
@@ -116,14 +146,16 @@ public class CheckoutPage {
         waitUtils
             .waitForElementClickable(cardPayment)
             .click();
+
     }
 
 
     public String getCheckoutTotal() {
 
         return waitUtils
-            .waitForElementVisible(checkoutTotal)
-            .getText();
+                .waitForElementVisible(checkoutTotal)
+                .getText();
+
     }
 
 
@@ -132,6 +164,7 @@ public class CheckoutPage {
         waitUtils
             .waitForElementClickable(placeOrderButton)
             .click();
+
     }
 
 
@@ -158,5 +191,7 @@ public class CheckoutPage {
         selectCashOnDelivery();
 
         clickPlaceOrder();
+
     }
+
 }
